@@ -1,0 +1,73 @@
+description: Execution flow control configuration
+version: 1
+workflows:
+  bugfix:
+    steps:
+    - name: reproduce
+      next:
+      - diagnose
+    - name: diagnose
+      next:
+      - fix
+    - name: fix
+      next:
+      - test
+    - name: test
+      next:
+      - verify
+      on_failure:
+      - diagnose
+    - name: verify
+      next:
+      - prevent
+    - name: prevent
+      next: []
+    type: sequential
+  feature:
+    steps:
+    - name: define
+      next:
+      - design
+    - name: design
+      next:
+      - implement
+    - name: implement
+      next:
+      - test
+    - name: test
+      next:
+      - review
+      on_failure:
+      - fix
+    - max_retries: 3
+      name: fix
+      next:
+      - test
+    - name: review
+      next: []
+      on_failure:
+      - fix
+    type: sequential
+  parallel_independent:
+    condition: no mutual dependency between work units
+    steps: []
+    type: parallel
+  ? 'workflows_(seed_for_layer_4)
+
+    -_feature'
+  : steps:
+    - name: implement_repository
+      next:
+      - implement_service
+    - name: implement_service
+      next:
+      - implement_route
+    - name: implement_route
+      next:
+      - test
+    - name: test
+      next:
+      - document
+    - name: document
+      next: []
+    type: sequential

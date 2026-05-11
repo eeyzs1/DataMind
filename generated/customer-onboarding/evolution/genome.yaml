@@ -1,0 +1,101 @@
+agent_genome:
+  default_scope:
+    handoff_format: structured YAML
+    max_context_lines: 60
+  topology_rules:
+  - always add verifier
+  - merge tightly coupled roles
+  - split when context exceeds budget
+created_at: '2026-05-01T10:33:14.596503'
+evolution_genome:
+  fitness_weights:
+    evidence_satisfaction_rate: 0.35
+    goal_drift_rate: 0.2
+    loop_efficiency: 0.25
+    root_cause_hit_rate: 0.2
+  mutation_rate: 0.1
+  safety_constraints:
+  - never remove verification layer
+  - never remove evolution system
+  - mutation rate <= 30%
+  - all mutations reversible
+  selection_threshold: fitness must improve or complexity must decrease
+harness_genome:
+  constraints:
+  - id: C001
+    last_triggered: null
+    rule: every task must have acceptance criteria
+    source: initial design
+    trigger_count: 0
+  - id: C002
+    last_triggered: null
+    rule: no agent self-certifies
+    source: initial design
+    trigger_count: 0
+  - id: C003
+    last_triggered: null
+    rule: every mistake produces a new constraint
+    source: initial design
+    trigger_count: 0
+  - id: C004
+    last_triggered: null
+    rule: Frontend and backend are separate layers
+    source: 'domain template: web-app'
+    trigger_count: 0
+  - id: C005
+    last_triggered: null
+    rule: No business logic in presentation layer
+    source: 'domain template: web-app'
+    trigger_count: 0
+  - id: C006
+    last_triggered: null
+    rule: No direct database access from frontend
+    source: 'domain template: web-app'
+    trigger_count: 0
+  - id: C007
+    last_triggered: null
+    rule: All API endpoints have input validation
+    source: 'domain template: web-app'
+    trigger_count: 0
+  - id: C008
+    last_triggered: null
+    rule: Authentication required for non-public endpoints
+    source: 'domain template: web-app'
+    trigger_count: 0
+  - id: C009
+    last_triggered: null
+    rule: Responsive design (mobile-first)
+    source: 'domain template: web-app'
+    trigger_count: 0
+  skills:
+  - id: S001
+    name: self-verify
+    source: initial design
+  - id: S002
+    name: task-decompose
+    source: initial design
+  workflows:
+  - id: W001
+    name: base flow
+    source: initial design
+    steps:
+    - define
+    - plan
+    - execute
+    - verify
+    - record
+  - id: W002
+    name: 'Workflows (seed for Layer 4)
+
+      - Feature'
+    source: 'domain template: web-app'
+    steps:
+    - design API
+    - implement backend
+    - implement frontend
+    - integrate
+    - test
+    - review
+last_evolved: null
+total_mutations: 0
+version: 1

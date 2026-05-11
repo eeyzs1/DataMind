@@ -1,0 +1,62 @@
+proposals:
+- category: performance
+  description: Cursor-based pagination for large datasets
+  effort: medium
+  id: API-I010
+  impact: high
+  name: Pagination with cursor
+  proposed_at: '2026-05-01T11:25:30.264730'
+  requires_approval: false
+  status: proposed
+  target_stage: Advanced
+  trigger_condition: endpoints returning large lists
+  type: product_innovation
+- category: integration
+  description: Push notifications via webhooks when data changes
+  effort: medium
+  id: API-I011
+  impact: high
+  name: Webhook notifications
+  proposed_at: '2026-05-01T11:25:30.264730'
+  requires_approval: false
+  status: proposed
+  target_stage: Advanced
+  trigger_condition: clients need to poll for changes
+  type: product_innovation
+- category: performance
+  description: Redis or in-memory caching for frequently accessed data
+  effort: medium
+  id: API-I012
+  impact: high
+  name: Caching layer
+  proposed_at: '2026-05-01T11:25:30.264730'
+  requires_approval: false
+  status: proposed
+  target_stage: Advanced
+  trigger_condition: repeated identical queries
+  type: product_innovation
+- category: reliability
+  description: Async processing for long-running operations
+  effort: medium
+  id: API-I013
+  impact: high
+  name: Background jobs
+  proposed_at: '2026-05-01T11:25:30.264730'
+  requires_approval: false
+  status: proposed
+  target_stage: Advanced
+  trigger_condition: operations taking over 5 seconds
+  type: product_innovation
+- category: maintainability
+  description: URL-based or header-based API versioning
+  effort: medium
+  id: API-I014
+  impact: high
+  name: API versioning strategy
+  proposed_at: '2026-05-01T11:25:30.264730'
+  requires_approval: false
+  status: proposed
+  target_stage: Advanced
+  trigger_condition: breaking changes expected
+  type: product_innovation
+version: 1

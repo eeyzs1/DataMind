@@ -1,0 +1,21 @@
+acceptance_criteria:
+- API endpoints respond with correct status codes
+- Input validation rejects invalid requests
+- Error responses follow consistent format
+- API documentation is auto-generated
+assumptions:
+- Domain classified as api-service based on intent keywords
+- Scale classified as personal based on intent keywords
+- Acceptance criteria are initial suggestions — user should refine
+domain: api_service
+goal: A REST API for managing tasks with assignments and deadlines
+hard_constraints: []
+name: A REST API for managing tasks with assignments and deadlines
+quality_attributes: []
+real_need: I need a REST API for managing tasks with assignments and deadlines
+scale: personal
+soft_constraints: []
+unknowns:
+- Exact technical stack preference
+- Authentication method
+- Deployment target

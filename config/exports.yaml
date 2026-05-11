@@ -1,0 +1,21 @@
+exports:
+  - name: ml_training_revenue
+    source: app/app_daily_revenue
+    format: parquet
+    target: file
+    target_path: exports/ml/daily_revenue
+    schedule: "0 6 * * *"
+
+  - name: daily_report_csv
+    source: app/app_daily_revenue
+    format: csv
+    target: file
+    target_path: exports/reports/daily
+    schedule: "0 8 * * *"
+
+  - name: customer_segments
+    source: app/app_customer_segments
+    format: parquet
+    target: file
+    target_path: exports/ml/customer_segments
+    schedule: "0 6 * * *"

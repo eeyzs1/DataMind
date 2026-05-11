@@ -1,0 +1,681 @@
+entries:
+- all_complete: false
+  completeness:
+    constraints: true
+    context: false
+    evolution: false
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  output_dir: generated\task-manager-api
+  task_name: Task Manager API
+  template: api-service
+  timestamp: '2026-05-01T09:43:53.925048'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  output_dir: generated\task-manager-api
+  task_name: Task Manager API
+  template: api-service
+  timestamp: '2026-05-01T09:45:32.804194'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 6
+  domain_workflows_applied: 1
+  output_dir: generated\customer-onboarding
+  task_name: Customer Onboarding
+  template: web-app
+  timestamp: '2026-05-01T10:33:14.601543'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: generated\task-manager-api
+  task_name: Task Manager API
+  template: api-service
+  timestamp: '2026-05-01T10:33:15.185016'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_g9ul9cc_
+  task_name: Test API
+  template: api-service
+  timestamp: '2026-05-01T10:34:01.013832'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 6
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_xsf0wruj
+  task_name: Test Web App
+  template: web-app
+  timestamp: '2026-05-01T10:34:01.077268'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_sdrhn2kw\api
+  task_name: API Project
+  template: api-service
+  timestamp: '2026-05-01T10:34:01.139743'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 6
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_sdrhn2kw\web
+  task_name: Web Project
+  template: web-app
+  timestamp: '2026-05-01T10:34:01.188030'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_t2nozn8h
+  task_name: Layer Test
+  template: api-service
+  timestamp: '2026-05-01T10:34:01.258734'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_q_eh7ha0
+  task_name: Test API
+  template: api-service
+  timestamp: '2026-05-01T10:34:29.749530'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 6
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_mr214nt6
+  task_name: Test Web App
+  template: web-app
+  timestamp: '2026-05-01T10:34:29.799011'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_rnlhsm66\api
+  task_name: API Project
+  template: api-service
+  timestamp: '2026-05-01T10:34:29.857568'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 6
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_rnlhsm66\web
+  task_name: Web Project
+  template: web-app
+  timestamp: '2026-05-01T10:34:29.908828'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_1g7s6skn
+  task_name: Layer Test
+  template: api-service
+  timestamp: '2026-05-01T10:34:29.981338'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: generated\task-manager-api
+  task_name: Task Manager API
+  template: api-service
+  timestamp: '2026-05-01T10:59:01.933946'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_04ilby1a
+  task_name: Test API
+  template: api-service
+  timestamp: '2026-05-01T11:00:32.177982'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 6
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_q77b5f47
+  task_name: Test Web App
+  template: web-app
+  timestamp: '2026-05-01T11:00:32.243243'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_o7seuouu\api
+  task_name: API Project
+  template: api-service
+  timestamp: '2026-05-01T11:00:32.318702'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 6
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_o7seuouu\web
+  task_name: Web Project
+  template: web-app
+  timestamp: '2026-05-01T11:00:32.381209'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_oe910x6s
+  task_name: Layer Test
+  template: api-service
+  timestamp: '2026-05-01T11:00:32.455351'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: generated\task-manager-api
+  task_name: Task Manager API
+  template: api-service
+  timestamp: '2026-05-01T11:22:43.329295'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_awu9r7p1
+  task_name: Test API
+  template: api-service
+  timestamp: '2026-05-01T11:26:08.724095'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 6
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_j9dcqzho
+  task_name: Test Web App
+  template: web-app
+  timestamp: '2026-05-01T11:26:08.796200'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_3pi6budf\api
+  task_name: API Project
+  template: api-service
+  timestamp: '2026-05-01T11:26:08.874844'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 6
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_3pi6budf\web
+  task_name: Web Project
+  template: web-app
+  timestamp: '2026-05-01T11:26:08.948807'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_0ux33loj
+  task_name: Layer Test
+  template: api-service
+  timestamp: '2026-05-01T11:26:09.035732'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: generated\review-test
+  task_name: A REST API for managing tasks with assignments and deadlines
+  template: api-service
+  timestamp: '2026-05-01T11:32:01.333625'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_4bhlrb8b
+  task_name: Test API
+  template: api-service
+  timestamp: '2026-05-01T11:34:57.749352'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 6
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_v4n52kjh
+  task_name: Test Web App
+  template: web-app
+  timestamp: '2026-05-01T11:34:57.819741'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_jfb23gio\api
+  task_name: API Project
+  template: api-service
+  timestamp: '2026-05-01T11:34:57.902563'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 6
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_jfb23gio\web
+  task_name: Web Project
+  template: web-app
+  timestamp: '2026-05-01T11:34:57.982684'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_pqzoofns
+  task_name: Layer Test
+  template: api-service
+  timestamp: '2026-05-01T11:34:58.079053'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 6
+  domain_workflows_applied: 1
+  output_dir: generated\test-guard-system
+  task_name: Test Guard System
+  template: web-app
+  timestamp: '2026-05-06T18:05:43.453327'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test__e3yrdnb
+  task_name: Test API
+  template: api-service
+  timestamp: '2026-05-11T20:13:50.881418'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 6
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_3j33by4r
+  task_name: Test Web App
+  template: web-app
+  timestamp: '2026-05-11T20:13:50.971197'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_j9130qsl\api
+  task_name: API Project
+  template: api-service
+  timestamp: '2026-05-11T20:13:51.062776'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 6
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_j9130qsl\web
+  task_name: Web Project
+  template: web-app
+  timestamp: '2026-05-11T20:13:51.141406'
+- all_complete: true
+  completeness:
+    constraints: true
+    context: true
+    evolution: true
+    feedback: true
+    memory: true
+    observability: true
+    planning: true
+    security: true
+    tools: true
+    verification: true
+  domain_constraints_applied: 7
+  domain_workflows_applied: 1
+  output_dir: C:\Users\eeyzs1\AppData\Local\Temp\harness_test_xygep8ks
+  task_name: Layer Test
+  template: api-service
+  timestamp: '2026-05-11T20:13:51.257362'

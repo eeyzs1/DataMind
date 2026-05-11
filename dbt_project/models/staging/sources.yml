@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: raw_files
+    schema: raw
+    tables:
+      - name: olist_orders
+        meta:
+          external_location: "../data/raw/olist_orders.parquet"
+      - name: olist_payments
+        meta:
+          external_location: "../data/raw/olist_payments.parquet"
+      - name: olist_customers
+        meta:
+          external_location: "../data/raw/olist_customers.parquet"
+      - name: olist_products
+        meta:
+          external_location: "../data/raw/olist_products.parquet"
+      - name: olist_reviews
+        meta:
+          external_location: "../data/raw/olist_reviews.parquet"

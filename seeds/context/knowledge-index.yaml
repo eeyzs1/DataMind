@@ -1,0 +1,12 @@
+version: 1
+description: Maps file paths to knowledge domains for context loading
+mappings:
+  src/api/: API contracts and endpoint definitions
+  src/components/: UI component patterns
+  src/services/: Business logic and service layer
+  src/repositories/: Data access and repository layer
+  src/models/: Data models and type definitions
+  src/utils/: Utility functions and helpers
+  tests/: Test specifications and fixtures
+  config/: Configuration files
+  schemas/: Data schema definitions

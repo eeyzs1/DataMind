@@ -1,0 +1,104 @@
+version: 2
+
+models:
+  - name: stg_orders
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        tests:
+          - not_null
+      - name: order_status
+        tests:
+          - accepted_values:
+              values: ['delivered', 'shipped', 'invoiced', 'processing', 'canceled', 'unavailable']
+
+  - name: stg_payments
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+      - name: payment_value
+        tests:
+          - not_null
+      - name: payment_type
+        tests:
+          - accepted_values:
+              values: ['credit_card', 'boleto', 'voucher', 'debit_card', 'not_defined']
+
+  - name: stg_customers
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+      - name: customer_state
+        tests:
+          - not_null
+
+  - name: stg_products
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_reviews
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+      - name: review_score
+        tests:
+          - accepted_values:
+              values: [1, 2, 3, 4, 5]
+
+  - name: int_order_detail
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+
+  - name: int_payment_detail
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+
+  - name: fct_daily_revenue
+    columns:
+      - name: order_date
+        tests:
+          - not_null
+      - name: total_revenue
+        tests:
+          - not_null
+      - name: order_count
+        tests:
+          - not_null
+
+  - name: fct_monthly_kpi
+    columns:
+      - name: order_month
+        tests:
+          - not_null
+
+  - name: app_daily_revenue
+    columns:
+      - name: order_date
+        tests:
+          - not_null
+
+  - name: app_customer_segments
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+      - name: customer_segment
+        tests:
+          - accepted_values:
+              values: ['高价值', '普通', '沉默', '流失风险']

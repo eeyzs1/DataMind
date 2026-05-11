@@ -1,0 +1,72 @@
+dependency_direction:
+  allowed:
+  - route → service
+  - service → repository
+  - repository → database
+  forbidden:
+  - database → repository
+  - repository → service
+  - service → route
+description: Architecture constraint rules — dependency direction and layer boundaries
+rules:
+- description: No business logic in presentation layer
+  file_pattern: src/(?:components|views|pages)/**
+  id: AR001
+  pattern: (?:(?:def|class)\s+\w+.*(?:business|calculate|process|validate)_)
+  severity: error
+- description: No direct database access from frontend
+  file_pattern: src/(?:components|views|pages)/**
+  id: AR002
+  pattern: (?:import.*(?:sql|database|db|prisma|sequelize|typeorm).*from)
+  severity: error
+- description: API layer must not contain business logic
+  file_pattern: src/(?:routes|controllers|handlers)/**
+  id: AR003
+  pattern: (?:def|function)\s+(?:calculate|process|validate|transform)
+  severity: warning
+- check: every endpoint function must call a validation function
+  description: All API endpoints must have input validation
+  file_pattern: src/(?:routes|controllers|handlers)/**
+  id: AR004
+  pattern: ''
+  severity: warning
+- check: import graph must be a DAG
+  description: No circular dependencies between modules
+  id: AR005
+  severity: error
+- description: API versioning from day one
+  id: DC006
+  pattern: ''
+  severity: warning
+  source: 'domain template: api-service'
+- description: All endpoints have rate limiting
+  id: DC007
+  pattern: ''
+  severity: warning
+  source: 'domain template: api-service'
+- description: Request/response schemas are explicit and validated
+  id: DC008
+  pattern: ''
+  severity: warning
+  source: 'domain template: api-service'
+- description: No business logic in route handlers
+  id: DC009
+  pattern: ''
+  severity: warning
+  source: 'domain template: api-service'
+- description: Database access only through repository layer
+  id: DC010
+  pattern: ''
+  severity: warning
+  source: 'domain template: api-service'
+- description: Structured error responses with error codes
+  id: DC011
+  pattern: ''
+  severity: warning
+  source: 'domain template: api-service'
+- description: API documentation auto-generated from code
+  id: DC012
+  pattern: ''
+  severity: warning
+  source: 'domain template: api-service'
+version: 1

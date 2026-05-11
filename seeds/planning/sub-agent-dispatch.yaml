@@ -1,0 +1,40 @@
+version: 1
+description: Sub-agent dispatch configuration
+roles:
+  - name: planner
+    responsibilities:
+      - design API contracts
+      - define component structure
+      - create task decomposition
+    receives:
+      - task definition
+    produces:
+      - API contracts
+      - component specs
+      - execution plan
+
+  - name: executor
+    responsibilities:
+      - implement features
+      - write code
+      - fix bugs
+    receives:
+      - execution plan
+      - API contracts
+      - component specs
+    produces:
+      - source code
+      - test code
+
+  - name: verifier
+    responsibilities:
+      - run tests
+      - check consistency
+      - validate outputs
+    receives:
+      - source code
+      - test code
+      - acceptance criteria
+    produces:
+      - test results
+      - verification report

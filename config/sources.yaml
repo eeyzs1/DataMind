@@ -1,0 +1,25 @@
+sources:
+  - name: olist_orders
+    type: csv
+    url: "https://raw.githubusercontent.com/olist/workshop-data/master/datasets/olist_orders_dataset.csv"
+    schedule: "0 2 * * *"
+
+  - name: olist_payments
+    type: csv
+    url: "https://raw.githubusercontent.com/olist/workshop-data/master/datasets/olist_order_payments_dataset.csv"
+    schedule: "0 2 * * *"
+
+  - name: olist_customers
+    type: csv
+    url: "https://raw.githubusercontent.com/olist/workbook/master/datasets/olist_customers_dataset.csv"
+    schedule: "0 2 * * *"
+
+  - name: olist_products
+    type: csv
+    url: "https://raw.githubusercontent.com/olist/workbook/master/datasets/olist_products_dataset.csv"
+    schedule: "0 2 * * *"
+
+  - name: olist_reviews
+    type: csv
+    url: "https://raw.githubusercontent.com/olist/workbook/master/datasets/olist_order_reviews_dataset.csv"
+    schedule: "0 2 * * *"

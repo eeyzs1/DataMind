@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "API Contract",
+  "type": "object",
+  "required": [
+    "endpoint",
+    "method",
+    "request",
+    "response"
+  ],
+  "properties": {
+    "endpoint": {
+      "type": "string",
+      "pattern": "^/"
+    },
+    "method": {
+      "type": "string",
+      "enum": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    "request": {
+      "type": "object"
+    },
+    "response": {
+      "type": "object",
+      "required": [
+        "status",
+        "body"
+      ]
+    },
+    "auth_required": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

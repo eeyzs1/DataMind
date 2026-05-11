@@ -1,0 +1,50 @@
+version: 1
+description: Audit logging configuration
+logging:
+  enabled: true
+  level: INFO
+  format: structured_json
+  outputs:
+    - type: file
+      path: "logs/audit.jsonl"
+      rotation: daily
+      retention_days: 90
+    - type: console
+      level: WARNING
+
+events_to_log:
+  - category: api_calls
+    fields: [method, path, status_code, user_id, timestamp, duration_ms]
+    level: INFO
+    reason: "Track all API interactions"
+
+  - category: data_mutations
+    fields: [operation, table, record_id, changes, user_id, timestamp]
+    level: INFO
+    reason: "Track all data changes for traceability"
+
+  - category: auth_events
+    fields: [event_type, user_id, ip_address, timestamp, success]
+    level: INFO
+    reason: "Security audit trail"
+
+  - category: constraint_violations
+    fields: [rule_id, violation_type, file, details, timestamp]
+    level: WARNING
+    reason: "Track when constraints are violated"
+
+  - category: evolution_events
+    fields: [mutation_type, target, evidence, result, timestamp]
+    level: INFO
+    reason: "Track self-evolution for governance"
+
+  - category: human_interventions
+    fields: [trigger, decision, context, timestamp]
+    level: INFO
+    reason: "Track when humans override the system"
+
+immutability:
+  enabled: true
+  method: append_only
+  tamper_detection: hash_chain
+  reason: "Audit logs must be tamper-proof for compliance"

@@ -1,0 +1,16 @@
+acceptance_criteria:
+- POST /tasks creates a new task with validation
+- GET /tasks returns paginated task list
+- All endpoints return proper error responses
+assumptions:
+- Single team usage initially
+domain: api_service
+goal: A working REST API that supports CRUD operations for tasks
+hard_constraints:
+- API versioning from day one
+- All endpoints must validate input
+name: Task Manager API
+real_need: Teams need a centralized way to track and manage tasks
+scale: team
+unknowns:
+- Authentication method

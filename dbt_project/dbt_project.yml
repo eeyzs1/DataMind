@@ -1,0 +1,32 @@
+name: 'datamind'
+version: '1.0.0'
+
+profile: 'datamind'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+vars:
+  datamind_profile: "{{ env_var('DATAMIND_PROFILE', 'dev') }}"
+  detail_layer_mode: "{{ 'full' if var('datamind_profile') in ['prod', 'global'] else 'passthrough' }}"
+
+models:
+  datamind:
+    staging:
+      +materialized: table
+      +schema: cleaned
+    intermediate:
+      +materialized: table
+      +schema: detail
+    marts:
+      +materialized: table
+      +schema: app

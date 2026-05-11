@@ -1,0 +1,7 @@
+description: Maps file paths to knowledge domains for context loading
+mappings:
+  src/api/: API endpoints and contracts
+  src/components/: UI components
+  src/repositories/: Data access
+  src/services/: Business logic
+version: 1

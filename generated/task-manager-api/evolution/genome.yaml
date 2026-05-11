@@ -1,0 +1,125 @@
+agent_genome:
+  default_scope:
+    handoff_format: structured YAML
+    max_context_lines: 60
+  topology_rules:
+  - always add verifier
+  - merge tightly coupled roles
+  - split when context exceeds budget
+created_at: '2026-05-01T11:22:43.323717'
+evolution_genome:
+  fitness_weights:
+    evidence_satisfaction_rate: 0.35
+    goal_drift_rate: 0.2
+    loop_efficiency: 0.25
+    root_cause_hit_rate: 0.2
+  mutation_rate: 0.1
+  safety_constraints:
+  - never remove verification layer
+  - never remove evolution system
+  - mutation rate <= 30%
+  - all mutations reversible
+  selection_threshold: fitness must improve or complexity must decrease
+harness_genome:
+  constraints:
+  - id: C001
+    last_triggered: null
+    rule: every task must have acceptance criteria
+    source: initial design
+    trigger_count: 0
+  - id: C002
+    last_triggered: null
+    rule: no agent self-certifies
+    source: initial design
+    trigger_count: 0
+  - id: C003
+    last_triggered: null
+    rule: every mistake produces a new constraint
+    source: initial design
+    trigger_count: 0
+  - id: C004
+    last_triggered: null
+    rule: API versioning from day one
+    source: 'domain template: api-service'
+    trigger_count: 0
+  - id: C005
+    last_triggered: null
+    rule: All endpoints have rate limiting
+    source: 'domain template: api-service'
+    trigger_count: 0
+  - id: C006
+    last_triggered: null
+    rule: Request/response schemas are explicit and validated
+    source: 'domain template: api-service'
+    trigger_count: 0
+  - id: C007
+    last_triggered: null
+    rule: No business logic in route handlers
+    source: 'domain template: api-service'
+    trigger_count: 0
+  - id: C008
+    last_triggered: null
+    rule: Database access only through repository layer
+    source: 'domain template: api-service'
+    trigger_count: 0
+  - id: C009
+    last_triggered: null
+    rule: Structured error responses with error codes
+    source: 'domain template: api-service'
+    trigger_count: 0
+  - id: C010
+    last_triggered: null
+    rule: API documentation auto-generated from code
+    source: 'domain template: api-service'
+    trigger_count: 0
+  skills:
+  - id: S001
+    name: self-verify
+    source: initial design
+  - id: S002
+    name: task-decompose
+    source: initial design
+  - id: API-I010
+    name: Pagination with cursor
+    source: 'innovation engine: endpoints returning large lists'
+    status: proposed
+  - id: API-I011
+    name: Webhook notifications
+    source: 'innovation engine: clients need to poll for changes'
+    status: proposed
+  - id: API-I012
+    name: Caching layer
+    source: 'innovation engine: repeated identical queries'
+    status: proposed
+  - id: API-I013
+    name: Background jobs
+    source: 'innovation engine: operations taking over 5 seconds'
+    status: proposed
+  - id: API-I014
+    name: API versioning strategy
+    source: 'innovation engine: breaking changes expected'
+    status: proposed
+  workflows:
+  - id: W001
+    name: base flow
+    source: initial design
+    steps:
+    - define
+    - plan
+    - execute
+    - verify
+    - record
+  - id: W002
+    name: 'Workflows (seed for Layer 4)
+
+      - Feature'
+    source: 'domain template: api-service'
+    steps:
+    - implement repository
+    - implement service
+    - implement route
+    - test
+    - document
+last_evolved: null
+total_mutations: 0
+version: 1

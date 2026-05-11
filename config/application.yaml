@@ -1,0 +1,28 @@
+dbt:
+  project_dir: dbt_project
+  targets:
+    dev:
+      type: duckdb
+      path: ./data/datamind.duckdb
+    staging:
+      type: duckdb
+      path: ./data/datamind.duckdb
+    prod:
+      type: spark
+      method: thrift
+      host: localhost
+      port: 10000
+
+api:
+  host: 0.0.0.0
+  port: 8000
+  workers: 1
+  cache_backend: memory
+  cache_ttl_seconds: 300
+
+streamlit:
+  port: 8501
+
+logging:
+  level: INFO
+  format: "%(asctime)s [%(levelname)s] %(name)s: %(message)s"

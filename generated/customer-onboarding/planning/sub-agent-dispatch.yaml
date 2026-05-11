@@ -1,0 +1,18 @@
+description: Sub-agent dispatch configuration
+roles:
+- name: planner
+  produces: []
+  receives: []
+  responsibilities:
+  - 'Planner: designs API contracts and component structure'
+- name: executor
+  produces: []
+  receives: []
+  responsibilities:
+  - 'Executor: implements backend and frontend'
+- name: verifier
+  produces: []
+  receives: []
+  responsibilities:
+  - 'Verifier: runs tests, checks accessibility, validates API contracts'
+version: 1

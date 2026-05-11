@@ -1,0 +1,69 @@
+dependency_direction:
+  allowed:
+  - frontend → api
+  - api → service
+  - service → repo
+  - repo → DB
+  forbidden:
+  - DB → repo
+  - repo → service
+  - service → api
+  - frontend → DB
+description: Architecture constraint rules — dependency direction and layer boundaries
+rules:
+- description: No business logic in presentation layer
+  file_pattern: src/(?:components|views|pages)/**
+  id: AR001
+  pattern: (?:(?:def|class)\s+\w+.*(?:business|calculate|process|validate)_)
+  severity: error
+- description: No direct database access from frontend
+  file_pattern: src/(?:components|views|pages)/**
+  id: AR002
+  pattern: (?:import.*(?:sql|database|db|prisma|sequelize|typeorm).*from)
+  severity: error
+- description: API layer must not contain business logic
+  file_pattern: src/(?:routes|controllers|handlers)/**
+  id: AR003
+  pattern: (?:def|function)\s+(?:calculate|process|validate|transform)
+  severity: warning
+- check: every endpoint function must call a validation function
+  description: All API endpoints must have input validation
+  file_pattern: src/(?:routes|controllers|handlers)/**
+  id: AR004
+  pattern: ''
+  severity: warning
+- check: import graph must be a DAG
+  description: No circular dependencies between modules
+  id: AR005
+  severity: error
+- description: Frontend and backend are separate layers
+  id: DC006
+  pattern: ''
+  severity: warning
+  source: 'domain template: web-app'
+- description: No business logic in presentation layer
+  id: DC007
+  pattern: ''
+  severity: warning
+  source: 'domain template: web-app'
+- description: No direct database access from frontend
+  id: DC008
+  pattern: ''
+  severity: warning
+  source: 'domain template: web-app'
+- description: All API endpoints have input validation
+  id: DC009
+  pattern: ''
+  severity: warning
+  source: 'domain template: web-app'
+- description: Authentication required for non-public endpoints
+  id: DC010
+  pattern: ''
+  severity: warning
+  source: 'domain template: web-app'
+- description: Responsive design (mobile-first)
+  id: DC011
+  pattern: ''
+  severity: warning
+  source: 'domain template: web-app'
+version: 1

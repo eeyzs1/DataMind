@@ -1,0 +1,8 @@
+description: Maps file paths to knowledge domains for context loading
+mappings:
+  schemas/: API schema definitions
+  src/models/: Data models and types
+  src/repositories/: Data access layer
+  src/routes/: API route handlers
+  src/services/: Business logic layer
+version: 1

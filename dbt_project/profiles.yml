@@ -1,0 +1,11 @@
+datamind:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ../data/datamind.duckdb
+      threads: 4
+    staging:
+      type: duckdb
+      path: ../data/datamind.duckdb
+      threads: 4

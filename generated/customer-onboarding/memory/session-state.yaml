@@ -1,0 +1,23 @@
+checkpoints: []
+created_at: '2026-05-01T10:33:14.594882'
+progress:
+  acceptance_criteria:
+  - Users can complete the onboarding flow end-to-end
+  - Form validation prevents invalid submissions
+  - Progress is saved and resumable
+  - UI is responsive on mobile and desktop
+  completed_criteria: []
+  failed_criteria: []
+  layers_generated:
+  - context
+  - tools
+  - memory
+  - planning
+  - verification
+  - feedback
+  - constraints
+  - security
+  - observability
+  - evolution
+status: initialized
+task_name: Customer Onboarding

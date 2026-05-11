@@ -1,0 +1,13 @@
+description: Sub-agent dispatch configuration
+roles:
+- name: planner
+  produces: []
+  receives: []
+  responsibilities:
+  - 'Planner: designs API contracts, data models, and service interfaces'
+- name: executor
+  produces: []
+  receives: []
+  responsibilities:
+  - 'Executor: implements each endpoint with repository pattern'
+version: 1

@@ -1,0 +1,45 @@
+profile: dev
+
+storage:
+  backend: local_fs
+  root_path: ./data
+
+compute:
+  backend: duckdb
+
+query:
+  backend: duckdb
+
+scheduler:
+  backend: apscheduler
+
+ingestion:
+  backend: script
+
+export:
+  backend: local
+
+metadata:
+  backend: sqlite
+
+auth:
+  backend: none
+
+observability:
+  log_backend: stdout
+  metrics_backend: none
+  trace_backend: none
+
+governance:
+  quality_severity: warn
+  contract_enforcement: warn
+
+ai:
+  control_plane:
+    text_to_sql: template
+    anomaly_explanation: none
+    metadata_enrichment: none
+  data_plane:
+    anomaly_detection: statistical
+    pii_detection: regex
+    quality_check: sql_rules
