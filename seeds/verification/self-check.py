@@ -67,7 +67,7 @@ def run_verification(project_root: Path) -> dict:
                 result["errors"][-1]["parsed_errors"] = captured
 
     lint_result = subprocess.run(
-        ["python", "-m", "ruff", "check", str(project_root / "src")],
+        [sys.executable, "-m", "ruff", "check", str(project_root / "src")],
         capture_output=True, text=True, cwd=str(project_root),
     )
     if lint_result.returncode != 0:

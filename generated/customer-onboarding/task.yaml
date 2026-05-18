@@ -1,0 +1,28 @@
+name: Customer Onboarding
+domain: web_app
+real_need: Need a web-based system for onboarding new customers with forms, verification, and progress tracking
+goal: A working web application that guides new customers through onboarding steps
+scale: small
+quality_attributes:
+  - usability
+  - reliability
+  - security
+hard_constraints:
+  - Frontend and backend are separate layers
+  - No business logic in presentation layer
+  - No direct database access from frontend
+  - All API endpoints have input validation
+  - Authentication required for non-public endpoints
+  - Responsive design (mobile-first)
+soft_constraints:
+  - Progressive enhancement
+  - Accessible forms (WCAG 2.1 AA)
+acceptance_criteria:
+  - Users can complete the onboarding flow end-to-end
+  - Form validation prevents invalid submissions
+  - Progress is saved and resumable
+  - UI is responsive on mobile and desktop
+unknowns: []
+assumptions:
+  - Single-page application with REST API backend
+  - Local storage for progress persistence

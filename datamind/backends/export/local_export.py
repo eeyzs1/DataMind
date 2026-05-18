@@ -57,19 +57,24 @@ class LocalExport(ExportInterface):
         records = df.to_dict("records")
 
         batch_size = target_config.get("batch_size", 1000)
+        failed_batches = 0
         for i in range(0, len(records), batch_size):
             batch = records[i:i + batch_size]
-            httpx.post(url, json=batch, timeout=30.0)
+            resp = httpx.post(url, json=batch, timeout=30.0)
+            if resp.status_code >= 400:
+                failed_batches += 1
 
         export_id = f"exp_api_{len(self._export_log) + 1}"
+        status = "completed" if failed_batches == 0 else f"partial ({failed_batches} failed batches)"
         self._export_log.append({
             "id": export_id,
             "source": source_path,
             "target": url,
             "format": "api",
             "timestamp": datetime.now().isoformat(),
-            "status": "completed",
+            "status": status,
             "rows": len(records),
+            "failed_batches": failed_batches,
         })
         return export_id
 

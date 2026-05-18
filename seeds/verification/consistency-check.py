@@ -60,20 +60,31 @@ def check_orphaned_references(project_root: Path) -> list:
 
     imports = set()
     definitions = set()
+    stdlib_modules = {
+        "os", "sys", "re", "json", "pathlib", "datetime", "collections",
+        "typing", "abc", "io", "math", "logging", "subprocess", "argparse",
+        "dataclasses", "functools", "itertools", "copy", "tempfile",
+    }
 
     for py_file in src_dir.rglob("*.py"):
         try:
             content = py_file.read_text(encoding="utf-8")
             for match in re.finditer(r"(?:from|import)\s+(\w+)", content):
-                imports.add(match.group(1))
+                mod = match.group(1)
+                if mod not in stdlib_modules and not mod.startswith("_"):
+                    imports.add((mod, str(py_file.relative_to(project_root))))
             for match in re.finditer(r"(?:class|def)\s+(\w+)", content):
                 definitions.add(match.group(1))
         except Exception:
             pass
 
-    for imp in imports:
-        if imp not in definitions and not imp.startswith("_"):
-            pass
+    defined_names = definitions
+    for mod_name, source_file in imports:
+        if mod_name not in defined_names:
+            orphans.append({
+                "type": "warning",
+                "message": f"Import '{mod_name}' in {source_file} has no matching definition in src/",
+            })
 
     return orphans
 

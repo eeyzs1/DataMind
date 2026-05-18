@@ -140,31 +140,41 @@ async def query_data(req: QueryRequest):
 
     table_path = storage.data_path(req.dataset)
     table_name = req.dataset.replace("/", "_").replace("-", "_")
+    compute.validate_identifier(table_name)
     compute.register_table(table_name, table_path)
 
     select_parts = []
     if req.dimensions:
-        select_parts.extend(req.dimensions)
+        for d in req.dimensions:
+            compute.validate_identifier(d)
+            select_parts.append(d)
     if req.metrics:
-        select_parts.extend(req.metrics)
+        for m in req.metrics:
+            compute.validate_identifier(m)
+            select_parts.append(m)
     if not select_parts:
         select_parts = ["*"]
 
     sql = f"SELECT {', '.join(select_parts)} FROM {table_name}"
+    params: list = []
 
     if req.filters:
         conditions = []
         for f in req.filters:
-            conditions.append(f"{f['field']} {f['op']} '{f['value']}'")
+            compute.validate_identifier(f["field"])
+            op = compute.validate_op(f["op"])
+            conditions.append(f"{f['field']} {op} ?")
+            params.append(f["value"])
         sql += " WHERE " + " AND ".join(conditions)
 
     if req.dimensions and req.metrics:
         sql += f" GROUP BY {', '.join(req.dimensions)}"
 
-    sql += f" LIMIT {req.limit}"
+    limit = max(1, min(req.limit, 10000))
+    sql += f" LIMIT {limit}"
 
     try:
-        df = compute.execute(sql)
+        df = compute.execute(sql, params if params else None)
         return {"data": df.to_dict("records"), "row_count": len(df), "sql": sql}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -178,7 +188,9 @@ async def natural_query(req: NaturalQueryRequest):
     if result:
         compute = get_compute()
         storage = get_storage()
-        compute.register_table("app_daily_revenue", storage.data_path("app/app_daily_revenue"))
+        table_name = result.get("table", "app_daily_revenue")
+        zone = "app" if table_name.startswith("app_") else "summary"
+        compute.register_table(table_name, storage.data_path(f"{zone}/{table_name}"))
         try:
             df = compute.execute(result["sql"])
             return {

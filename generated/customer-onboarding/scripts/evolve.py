@@ -18,6 +18,8 @@ Usage:
 
 import argparse
 import copy
+import random
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -91,38 +93,7 @@ def collect_evidence(project_root: Path) -> dict:
     return evidence
 
 
-def _measure_loop_efficiency(project_root: Path) -> float:
-    state_file = project_root / "memory" / "session-state.yaml"
-    if not state_file.exists():
-        return 0.5
-    with open(state_file, "r", encoding="utf-8") as f:
-        state = yaml.safe_load(f) or {}
-    progress = state.get("progress", {})
-    total = len(progress.get("acceptance_criteria", []))
-    completed = len(progress.get("completed_criteria", []))
-    failed = len(progress.get("failed_criteria", []))
-    if total == 0:
-        return 0.5
-    if completed + failed == 0:
-        return 0.5
-    return completed / (completed + failed)
-
-
-def _measure_goal_drift(project_root: Path) -> float:
-    state_file = project_root / "memory" / "session-state.yaml"
-    if not state_file.exists():
-        return 0.9
-    with open(state_file, "r", encoding="utf-8") as f:
-        state = yaml.safe_load(f) or {}
-    progress = state.get("progress", {})
-    total = len(progress.get("acceptance_criteria", []))
-    completed = len(progress.get("completed_criteria", []))
-    if total == 0:
-        return 0.9
-    return 1.0 - (total - completed) / max(total, 1) * 0.1
-
-
-def measure_fitness(genome: dict, evidence: dict, project_root: Path = None) -> float:
+def measure_fitness(genome: dict, evidence: dict) -> float:
     evo_genome = genome.get("evolution_genome", {})
     weights = evo_genome.get("fitness_weights", {
         "evidence_satisfaction_rate": 0.35,
@@ -137,17 +108,16 @@ def measure_fitness(genome: dict, evidence: dict, project_root: Path = None) -> 
     if isinstance(gen_results, list):
         total = len(gen_results)
         complete = sum(1 for e in gen_results if isinstance(e, dict) and e.get("all_complete"))
+        incomplete = total - complete
     elif isinstance(gen_results, dict):
         total = gen_results.get("total_generations", 0)
         complete = gen_results.get("complete", 0)
+        incomplete = gen_results.get("incomplete", 0)
     else:
-        total, complete = 0, 0
+        total, complete, incomplete = 0, 0, 0
     scores["evidence_satisfaction_rate"] = (complete / total) if total > 0 else 1.0
 
-    if project_root:
-        scores["loop_efficiency"] = _measure_loop_efficiency(project_root)
-    else:
-        scores["loop_efficiency"] = 0.7
+    scores["loop_efficiency"] = 0.7
 
     mistakes = evidence.get("meta_mistakes", {})
     if isinstance(mistakes, dict):
@@ -160,10 +130,7 @@ def measure_fitness(genome: dict, evidence: dict, project_root: Path = None) -> 
         total_mistakes, unresolved = 0, 0
     scores["root_cause_hit_rate"] = ((total_mistakes - unresolved) / total_mistakes) if total_mistakes > 0 else 1.0
 
-    if project_root:
-        scores["goal_drift_rate"] = _measure_goal_drift(project_root)
-    else:
-        scores["goal_drift_rate"] = 0.9
+    scores["goal_drift_rate"] = 0.9
 
     fitness = sum(weights.get(k, 0) * v for k, v in scores.items())
     return round(fitness, 4)
@@ -224,10 +191,10 @@ def check_safety(mutation: dict, genome: dict) -> bool:
     if mutation["type"] in ("REMOVE_CONSTRAINT", "WEAKEN_CONSTRAINT"):
         target = mutation.get("target", "")
         if "verification" in target.lower():
-            print("  ❌ SAFETY: Cannot remove/weaken verification constraint")
+            print(f"  ❌ SAFETY: Cannot remove/weaken verification constraint")
             return False
         if "evolution" in target.lower():
-            print("  ❌ SAFETY: Cannot remove/weaken evolution constraint")
+            print(f"  ❌ SAFETY: Cannot remove/weaken evolution constraint")
             return False
     return True
 
@@ -250,8 +217,7 @@ def apply_mutation(genome: dict, mutation: dict) -> dict:
     elif mutation["type"] == "STRENGTHEN_CONSTRAINT":
         for c in constraints:
             if c.get("trigger_count", 0) > 0:
-                c["severity"] = "error"
-                c["rule"] = c["rule"].replace(" (strengthened)", "") + " (mandatory)"
+                c["rule"] = c["rule"] + " (strengthened)"
 
     elif mutation["type"] == "WEAKEN_CONSTRAINT":
         target_id = mutation.get("target", "")
@@ -272,7 +238,7 @@ def run_evolution(project_root: Path, trigger: str = "periodic", dry_run: bool =
 
     genome = load_genome(project_root)
     evidence = collect_evidence(project_root)
-    fitness = measure_fitness(genome, evidence, project_root)
+    fitness = measure_fitness(genome, evidence)
 
     print(f"\nCurrent fitness: {fitness}")
     print(f"Evidence: {yaml.dump(evidence, default_flow_style=False)}")
@@ -297,11 +263,11 @@ def run_evolution(project_root: Path, trigger: str = "periodic", dry_run: bool =
             continue
 
         if dry_run:
-            print("  🔄 DRY RUN — would apply")
+            print(f"  🔄 DRY RUN — would apply")
             applied.append({**mutation, "status": "dry_run"})
         else:
             new_genome = apply_mutation(genome, mutation)
-            new_fitness = measure_fitness(new_genome, evidence, project_root)
+            new_fitness = measure_fitness(new_genome, evidence)
 
             if new_fitness >= fitness:
                 print(f"  ✅ ACCEPTED — fitness: {fitness} → {new_fitness}")
